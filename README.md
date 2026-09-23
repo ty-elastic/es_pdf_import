@@ -17,7 +17,7 @@ This is a simple python app that will accept a PDF and:
 export ES_URL="..." # the URL of your Elastic Cloud Hosted or Serverless deployment
 export ES_APIKEY="..." # an API key associated with your deployment
 export ES_INDEX="..." # the name of the index to import docs into
-export PATH_TO_PDF="$PWD/..." # the local path to the PDF
+export PATH_TO_PDF="$PWD/..." # the absolute local path to the PDF
 
 docker run -v $PATH_TO_PDF:/input.pdf \     
     us-central1-docker.pkg.dev/elastic-sa/tbekiares/es_pdf_import \
@@ -32,12 +32,12 @@ docker run -v $PATH_TO_PDF:/input.pdf \
 export ES_URL="..." # the URL of your Elastic Cloud Hosted or Serverless deployment
 export ES_APIKEY="..." # an API key associated with your deployment
 export ES_INDEX="..." # the name of the index to import docs into
-export PATH_TO_PDF="$PWD/..." # the local path to the PDF
+export PATH_TO_PDF="..." # the absolute or relative local path to the PDF
 
 uv pip install -r requirements.txt
 uv run es_pdf_import.py \
     --es_host $ES_URL \
     --es_apikey $ES_APIKEY \
     --es_index $ES_INDEX \
-    --input "/input.pdf"
+    --input $PATH_TO_PDF
 ```
