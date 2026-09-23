@@ -90,7 +90,7 @@ def ingest_pdf(es_host, es_apikey, es_index, input, version):
         ),
     )
 
-    # handle EIS throttling
+    # handle throttling
     retry_strategy = Retry(
         total=5,                  # Total number of attempts to make
         backoff_factor=1,         # Wait time multiplier (see Backoff Logic below)
